@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Book a Free Land Assessment — Acre Grove</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Figtree:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+–gold:      #b8924a;
+–taupe:     #c4bdb4;
+–taupe-mid: #a49d94;
+–cream:     #f5f1eb;
+–cream-dark:#ece7de;
+–white:     #ffffff;
+–black:     #111111;
+–text:      #2a2a28;
+–muted:     #8a8880;
+}
+
+body {
+background: var(–cream);
+color: var(–text);
+font-family: ‘Figtree’, sans-serif;
+font-weight: 300;
+line-height: 1.7;
+}
+
+nav {
+position: fixed;
+top: 0; left: 0; right: 0;
+z-index: 100;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 0 56px;
+height: 72px;
+background: var(–cream);
+border-bottom: 1px solid var(–taupe);
+}
+
+.nav-logo {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 22px;
+font-weight: 500;
+letter-spacing: 0.04em;
+color: var(–black);
+text-decoration: none;
+}
+.nav-logo span { color: var(–gold); }
+
+.nav-back {
+font-size: 12px;
+font-weight: 400;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: var(–text);
+text-decoration: none;
+display: flex;
+align-items: center;
+gap: 8px;
+transition: color 0.2s;
+}
+.nav-back:hover { color: var(–gold); }
+.nav-back::before { content: ‘←’; font-size: 14px; }
+
+.page {
+padding-top: 72px;
+min-height: 100vh;
+display: grid;
+grid-template-columns: 1fr 1fr;
+}
+
+.left-panel {
+background: var(–taupe);
+padding: 72px 56px;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+position: sticky;
+top: 72px;
+height: calc(100vh - 72px);
+}
+
+.left-label {
+font-size: 11px;
+font-weight: 500;
+letter-spacing: 0.22em;
+text-transform: uppercase;
+color: var(–gold);
+margin-bottom: 24px;
+}
+
+.left-title {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: clamp(32px, 3.2vw, 48px);
+font-weight: 300;
+line-height: 1.15;
+color: var(–black);
+margin-bottom: 24px;
+}
+.left-title em { font-style: italic; color: var(–gold); }
+
+.left-desc {
+font-size: 15px;
+color: var(–text);
+line-height: 1.85;
+max-width: 360px;
+margin-bottom: 44px;
+}
+
+.promises {
+list-style: none;
+display: flex;
+flex-direction: column;
+gap: 16px;
+margin-bottom: 52px;
+}
+.promise {
+display: flex;
+align-items: center;
+gap: 12px;
+font-size: 14px;
+color: var(–text);
+}
+.promise-dot {
+width: 6px;
+height: 6px;
+background: var(–gold);
+border-radius: 50%;
+flex-shrink: 0;
+}
+
+.left-contact {
+border-top: 1px solid var(–taupe-mid);
+padding-top: 28px;
+}
+.contact-lines { display: flex; flex-direction: column; gap: 10px; }
+.contact-lines a, .contact-lines span {
+text-decoration: none;
+font-size: 14px;
+color: var(–muted);
+text-decoration: none;
+transition: color 0.2s;
+}
+.contact-lines a:hover { color: var(–gold); }
+
+.right-panel { padding: 64px 56px 80px; }
+
+.form-heading {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 13px;
+font-weight: 500;
+letter-spacing: 0.14em;
+text-transform: uppercase;
+color: var(–muted);
+margin-bottom: 36px;
+padding-bottom: 18px;
+border-bottom: 1px solid var(–taupe);
+}
+
+.form-group { margin-bottom: 26px; }
+
+label {
+display: block;
+font-size: 11px;
+font-weight: 500;
+letter-spacing: 0.14em;
+text-transform: uppercase;
+color: var(–muted);
+margin-bottom: 9px;
+}
+
+input[type=“text”],
+input[type=“email”],
+input[type=“tel”],
+select,
+textarea {
+width: 100%;
+background: var(–white);
+border: 1px solid var(–taupe);
+border-radius: 0;
+padding: 13px 16px;
+font-family: ‘Figtree’, sans-serif;
+font-size: 15px;
+font-weight: 300;
+color: var(–text);
+outline: none;
+transition: border-color 0.2s;
+appearance: none;
+-webkit-appearance: none;
+-moz-appearance: none;
+}
+input:focus, select:focus, textarea:focus { border-color: var(–gold); }
+textarea { resize: vertical; min-height: 110px; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+
+.form-subtitle {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 20px;
+font-weight: 500;
+color: var(–black);
+margin: 36px 0 22px;
+}
+
+.check-group { display: flex; flex-direction: column; gap: 12px; }
+.check-item { display: flex; align-items: center; gap: 12px; cursor: pointer; }
+
+.check-item input[type=“checkbox”] {
+width: 17px;
+height: 17px;
+border: 1px solid var(–taupe-mid);
+background: var(–white);
+appearance: none;
+-webkit-appearance: none;
+cursor: pointer;
+position: relative;
+flex-shrink: 0;
+transition: background 0.2s, border-color 0.2s;
+margin: 0;
+}
+.check-item input[type=“checkbox”]:checked { background: var(–gold); border-color: var(–gold); }
+.check-item input[type=“checkbox”]:checked::after {
+content: ‘’;
+position: absolute;
+left: 5px; top: 2px;
+width: 4px; height: 8px;
+border: 2px solid white;
+border-top: none;
+border-left: none;
+transform: rotate(45deg);
+}
+.check-item span { font-size: 14px; color: var(–text); }
+
+.sel-wrap { position: relative; }
+.sel-wrap::after {
+content: ‘↓’;
+position: absolute;
+right: 14px; top: 50%;
+transform: translateY(-50%);
+color: var(–gold);
+pointer-events: none;
+font-size: 13px;
+}
+
+.submit-btn {
+display: block;
+width: 100%;
+margin-top: 36px;
+padding: 17px;
+background: var(–gold);
+color: var(–cream);
+font-family: ‘Figtree’, sans-serif;
+font-size: 12px;
+font-weight: 500;
+letter-spacing: 0.16em;
+text-transform: uppercase;
+border: none;
+cursor: pointer;
+transition: background 0.25s;
+}
+.submit-btn:hover { background: var(–taupe-mid); }
+
+.form-note {
+margin-top: 18px;
+font-size: 12px;
+color: var(–muted);
+text-align: center;
+line-height: 1.75;
+}
+
+@media (max-width: 860px) {
+nav { padding: 0 20px; }
+.page { grid-template-columns: 1fr; }
+.left-panel { position: static; height: auto; padding: 48px 24px; }
+.right-panel { padding: 44px 24px 72px; }
+.form-row { grid-template-columns: 1fr; }
+}
+</style>
+
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Acre<span>Grove</span></a>
+  <a href="index.html" class="nav-back">Back to Home</a>
+</nav>
+
+<div class="page">
+
+  <aside class="left-panel">
+    <div>
+      <p class="left-label">Free Land Assessment</p>
+      <h1 class="left-title">Let's find out what<br>your land is <em>really</em> worth.</h1>
+      <p class="left-desc">A confidential, no-obligation conversation about your land's development potential. We cover all costs — you take no risk.</p>
+      <ul class="promises">
+        <li class="promise"><span class="promise-dot"></span>Completely free, no obligation</li>
+        <li class="promise"><span class="promise-dot"></span>Strictly confidential</li>
+        <li class="promise"><span class="promise-dot"></span>We carry all costs and risk</li>
+        <li class="promise"><span class="promise-dot"></span>Manchester and Derby</li>
+        <li class="promise"><span class="promise-dot"></span>North West and East Midlands</li>
+      </ul>
+    </div>
+    <div class="left-contact">
+      <div class="contact-lines">
+        <a href="tel:07889024897">07889 024 897</a>
+        <a href="mailto:info@simpsonandsonestates.com">info@simpsonandsonestates.com</a>
+        <span>In partnership with Land Profits</span>
+      </div>
+    </div>
+  </aside>
+
+  <main class="right-panel">
+    <p class="form-heading">Land Assessment Request</p>
+    <form action="#" method="POST">
+
+  <div class="form-row">
+    <div class="form-group">
+      <label for="fname">First Name</label>
+      <input type="text" id="fname" name="first_name" placeholder="John" required />
+    </div>
+    <div class="form-group">
+      <label for="lname">Last Name</label>
+      <input type="text" id="lname" name="last_name" placeholder="Smith" required />
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" placeholder="john@example.com" required />
+  </div>
+
+  <div class="form-group">
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" name="phone" placeholder="07XXX XXX XXX" />
+  </div>
+
+  <p class="form-subtitle">About Your Land</p>
+
+  <div class="form-group">
+    <label for="location">Land Location / Postcode</label>
+    <input type="text" id="location" name="location" placeholder="e.g. SK1 or full address" required />
+  </div>
+
+  <div class="form-group">
+    <label for="land-type">Type of Land</label>
+    <div class="sel-wrap">
+      <select id="land-type" name="land_type">
+        <option value="" disabled selected>Select land type</option>
+        <option>Agricultural / Farmland</option>
+        <option>Garden / Residential Curtilage</option>
+        <option>Brownfield / Former Industrial</option>
+        <option>Woodland / Paddock</option>
+        <option>Commercial Site</option>
+        <option>Other / Unsure</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="size">Approximate Size</label>
+    <div class="sel-wrap">
+      <select id="size" name="size">
+        <option value="" disabled selected>Select approximate size</option>
+        <option>Under 0.5 acres</option>
+        <option>0.5 to 2 acres</option>
+        <option>2 to 10 acres</option>
+        <option>10 to 50 acres</option>
+        <option>50+ acres</option>
+        <option>Not sure</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>I am the (select all that apply)</label>
+    <div class="check-group">
+      <label class="check-item">
+        <input type="checkbox" name="ownership" value="owner" /><span>Landowner</span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox" name="ownership" value="agent" /><span>Acting on behalf of the landowner</span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox" name="ownership" value="other" /><span>Other</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="planning">Planning History (if known)</label>
+    <textarea id="planning" name="planning" placeholder="Any previous planning applications, refusals, or permissions? Leave blank if unsure."></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="notes">Anything Else We Should Know?</label>
+    <textarea id="notes" name="notes" placeholder="Any context about the land, your goals, or your timeline — entirely optional."></textarea>
+  </div>
+
+  <button type="submit" class="submit-btn">Submit My Assessment Request</button>
+
+  <p class="form-note">Your information is kept strictly confidential and will never be shared without your permission. We will be in touch within 2 working days.</p>
+
+</form>
+
+  </main>
+
+</div>
+
+</body>
+</html>
