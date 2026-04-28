@@ -11,14 +11,14 @@
 
 :root {
 –gold:      #b8924a;
-–sage:      #cbd5c0;
-–sage-mid:  #a8b89a;
+–taupe:     #c4bdb4;
+–taupe-mid: #a49d94;
 –cream:     #f5f1eb;
 –cream-dark:#ece7de;
 –white:     #ffffff;
 –black:     #111111;
 –text:      #2a2a28;
-–muted:     #7a7a6e;
+–8a8880:     #3a3a32;
 }
 
 body {
@@ -39,7 +39,7 @@ justify-content: space-between;
 padding: 0 56px;
 height: 72px;
 background: var(–cream);
-border-bottom: 1px solid var(–sage);
+border-bottom: 1px solid var(–taupe);
 }
 
 .nav-logo {
@@ -57,7 +57,7 @@ font-size: 12px;
 font-weight: 400;
 letter-spacing: 0.1em;
 text-transform: uppercase;
-color: var(–muted);
+color: var(–8a8880);
 text-decoration: none;
 display: flex;
 align-items: center;
@@ -75,7 +75,7 @@ grid-template-columns: 1fr 1fr;
 }
 
 .left-panel {
-background: var(–sage);
+background: var(–taupe);
 padding: 72px 56px;
 display: flex;
 flex-direction: column;
@@ -135,13 +135,13 @@ flex-shrink: 0;
 }
 
 .left-contact {
-border-top: 1px solid var(–sage-mid);
+border-top: 1px solid var(–taupe-mid);
 padding-top: 28px;
 }
 .contact-lines { display: flex; flex-direction: column; gap: 10px; }
 .contact-lines a, .contact-lines span {
 font-size: 14px;
-color: var(–muted);
+color: var(–8a8880);
 text-decoration: none;
 transition: color 0.2s;
 }
@@ -155,10 +155,10 @@ font-size: 13px;
 font-weight: 500;
 letter-spacing: 0.14em;
 text-transform: uppercase;
-color: var(–muted);
+color: var(–8a8880);
 margin-bottom: 36px;
 padding-bottom: 18px;
-border-bottom: 1px solid var(–sage);
+border-bottom: 1px solid var(–taupe);
 }
 
 .form-group { margin-bottom: 26px; }
@@ -169,7 +169,7 @@ font-size: 11px;
 font-weight: 500;
 letter-spacing: 0.14em;
 text-transform: uppercase;
-color: var(–muted);
+color: var(–8a8880);
 margin-bottom: 9px;
 }
 
@@ -180,7 +180,7 @@ select,
 textarea {
 width: 100%;
 background: var(–white);
-border: 1px solid var(–sage);
+border: 1px solid var(–taupe);
 border-radius: 0;
 padding: 13px 16px;
 font-family: ‘Figtree’, sans-serif;
@@ -211,7 +211,7 @@ margin: 36px 0 22px;
 .check-item input[type=“checkbox”] {
 width: 17px;
 height: 17px;
-border: 1px solid var(–sage-mid);
+border: 1px solid var(–taupe-mid);
 background: var(–white);
 appearance: none;
 -webkit-appearance: none;
@@ -261,12 +261,12 @@ border: none;
 cursor: pointer;
 transition: background 0.25s;
 }
-.submit-btn:hover { background: var(–sage-mid); }
+.submit-btn:hover { background: var(–taupe-mid); }
 
 .form-note {
 margin-top: 18px;
 font-size: 12px;
-color: var(–muted);
+color: var(–8a8880);
 text-align: center;
 line-height: 1.75;
 }
