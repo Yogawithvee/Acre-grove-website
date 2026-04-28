@@ -20,7 +20,7 @@
   --white:      #ffffff;
   --black:      #111111;
   --text:       #2a2a28;
-  --muted:      #7a7a6e;
+  --muted:      #3a3a32;
 }
 
 html { scroll-behavior: smooth; }
@@ -50,7 +50,7 @@ nav {
 
 .nav-logo {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
+  font-size: 36px;
   font-weight: 500;
   letter-spacing: 0.04em;
   color: var(--black);
@@ -260,7 +260,8 @@ nav {
 }
 .intro-band-aside {
   font-size: 13px;
-  color: var(--sage-deep);
+  color: var(--black);
+  opacity: 0.8;
   text-align: right;
   flex-shrink: 0;
   line-height: 2;
@@ -376,7 +377,7 @@ nav {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-top: 4px;
-  opacity: 0.85;
+  opacity: 1;
 }
 
 .why-list {
@@ -423,17 +424,19 @@ nav {
   max-width: 720px;
   margin: 0 auto 36px;
   line-height: 1.45;
+  opacity: 1;
 }
 .proof-attr {
   font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--black);
+  opacity: 0.75;
 }
 .proof-pills {
   margin-top: 56px;
   padding-top: 48px;
-  border-top: 1px solid var(--sage-mid);
+  border-top: 1px solid rgba(42,42,40,0.2);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -446,7 +449,8 @@ nav {
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--sage-deep);
+  color: var(--black);
+  opacity: 0.85;
 }
 
 /* ── CTA ── */
