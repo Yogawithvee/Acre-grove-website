@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acre Grove — We See the Value in Land Others Overlook</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Figtree:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+```
+:root {
+  --gold:       #b8924a;
+  --gold-light: #d4aa6a;
+  --sage:       #cbd5c0;
+  --sage-mid:   #a8b89a;
+  --sage-deep:  #6e8a62;
+  --cream:      #f5f1eb;
+  --cream-dark: #ece7de;
+  --white:      #ffffff;
+  --black:      #111111;
+  --text:       #2a2a28;
+  --muted:      #7a7a6e;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: 'Figtree', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 56px;
+  height: 72px;
+  background: var(--cream);
+  border-bottom: 1px solid var(--sage);
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--black);
+  text-decoration: none;
+}
+.nav-logo span { color: var(--gold); }
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+  align-items: center;
+}
+.nav-links a {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text);
+  text-decoration: none;
+  opacity: 0.65;
+  transition: opacity 0.2s, color 0.2s;
+}
+.nav-links a:hover { opacity: 1; color: var(--gold); }
+
+.nav-cta {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cream) !important;
+  background: var(--gold);
+  padding: 10px 24px;
+  opacity: 1 !important;
+  text-decoration: none;
+  transition: background 0.25s !important;
+}
+.nav-cta:hover { background: var(--sage-mid) !important; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 72px;
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 56px 80px 80px;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 28px;
+}
+
+.hero-headline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(46px, 5vw, 70px);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--black);
+  margin-bottom: 28px;
+}
+.hero-headline em { font-style: italic; color: var(--gold); }
+
+.hero-sub {
+  font-size: 16px;
+  color: var(--muted);
+  max-width: 400px;
+  line-height: 1.85;
+  margin-bottom: 24px;
+}
+
+.hero-loc {
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  margin-bottom: 44px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hero-loc::before {
+  content: '';
+  display: inline-block;
+  width: 24px; height: 1px;
+  background: var(--gold);
+}
+
+.hero-actions { display: flex; gap: 16px; align-items: center; }
+
+.btn-primary {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cream);
+  background: var(--gold);
+  padding: 15px 34px;
+  text-decoration: none;
+  transition: background 0.25s;
+}
+.btn-primary:hover { background: var(--sage-mid); }
+
+.btn-ghost {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--black);
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 2px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.btn-ghost:hover { color: var(--gold); }
+
+/* Hero image side */
+.hero-right {
+  position: relative;
+  background: var(--sage);
+  overflow: hidden;
+}
+
+.hero-img-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 580px;
+  background: linear-gradient(150deg, var(--sage) 0%, var(--sage-mid) 60%, #8fa882 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.hero-img-placeholder svg { opacity: 0.35; }
+.hero-img-placeholder p {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sage-deep);
+  opacity: 0.7;
+}
+
+/* To use a real image, replace the placeholder div with:
+   <img src="aerial-farmland.jpg" style="width:100%;height:100%;object-fit:cover;display:block;" alt="Aerial farmland England" /> */
+
+.hero-stats {
+  position: absolute;
+  bottom: 36px;
+  left: 36px;
+  display: flex;
+  background: var(--cream);
+}
+.stat {
+  padding: 18px 26px;
+  border-right: 1px solid var(--cream-dark);
+}
+.stat:last-child { border-right: none; }
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 3px;
+}
+.stat-lbl {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ── INTRO BAND ── */
+.intro-band {
+  background: var(--sage);
+  padding: 52px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+}
+.intro-band-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(20px, 2.4vw, 28px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--black);
+  max-width: 620px;
+  line-height: 1.55;
+}
+.intro-band-text strong {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--gold);
+}
+.intro-band-aside {
+  font-size: 13px;
+  color: var(--sage-deep);
+  text-align: right;
+  flex-shrink: 0;
+  line-height: 2;
+}
+
+/* ── SECTION BASE ── */
+.section { padding: 112px 80px; }
+
+.section-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 18px;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(34px, 4vw, 52px);
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--black);
+  margin-bottom: 60px;
+}
+.section-title em { font-style: italic; color: var(--gold); }
+
+/* ── PROCESS ── */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--sage);
+}
+.process-card {
+  padding: 44px 36px;
+  border-right: 1px solid var(--sage);
+  transition: background 0.3s;
+}
+.process-card:last-child { border-right: none; }
+.process-card:hover { background: var(--sage); }
+
+.process-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 64px;
+  font-weight: 300;
+  color: var(--sage-mid);
+  line-height: 1;
+  margin-bottom: 20px;
+}
+.process-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--black);
+  margin-bottom: 12px;
+}
+.process-card p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.85;
+}
+
+/* ── WHY US ── */
+.why-section {
+  padding: 112px 80px;
+  background: var(--cream-dark);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.why-image-block { position: relative; }
+
+.why-img-wrap {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: linear-gradient(150deg, var(--sage) 0%, var(--sage-mid) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  overflow: hidden;
+}
+.why-img-wrap svg { opacity: 0.35; }
+.why-img-wrap p {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sage-deep);
+  opacity: 0.7;
+}
+
+/* To use real image: replace why-img-wrap contents with an <img> tag */
+
+.why-badge {
+  position: absolute;
+  bottom: -24px; right: -24px;
+  background: var(--gold);
+  color: var(--cream);
+  padding: 24px 28px;
+  z-index: 1;
+}
+.why-badge .num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 38px;
+  font-weight: 500;
+  line-height: 1;
+}
+.why-badge .lbl {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 4px;
+  opacity: 0.85;
+}
+
+.why-list {
+  list-style: none;
+  margin-top: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.why-item { display: flex; gap: 18px; align-items: flex-start; }
+
+.why-icon {
+  width: 38px; height: 38px;
+  border: 1px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.why-item h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19px;
+  font-weight: 500;
+  color: var(--black);
+  margin-bottom: 5px;
+}
+.why-item p { font-size: 14px; color: var(--muted); line-height: 1.85; }
+
+/* ── PROOF BAND ── */
+.proof-band {
+  background: var(--sage);
+  padding: 88px 80px;
+  text-align: center;
+}
+.proof-band .section-label { color: var(--gold); margin-bottom: 16px; }
+
+.proof-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(26px, 3.2vw, 42px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--black);
+  max-width: 720px;
+  margin: 0 auto 36px;
+  line-height: 1.45;
+}
+.proof-attr {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.proof-pills {
+  margin-top: 56px;
+  padding-top: 48px;
+  border-top: 1px solid var(--sage-mid);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+.proof-pills span {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sage-deep);
+}
+
+/* ── CTA ── */
+.cta-section {
+  padding: 112px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.cta-section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(34px, 3.8vw, 52px);
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--black);
+}
+.cta-section h2 em { font-style: italic; color: var(--gold); }
+
+.cta-right { display: flex; flex-direction: column; gap: 24px; }
+.cta-right p { font-size: 15px; color: var(--muted); line-height: 1.85; }
+
+.cta-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px 0;
+  border-top: 1px solid var(--sage);
+  border-bottom: 1px solid var(--sage);
+}
+.cta-detail {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--text);
+}
+.cta-detail a { color: var(--text); text-decoration: none; transition: color 0.2s; }
+.cta-detail a:hover { color: var(--gold); }
+.cta-dot {
+  width: 6px; height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--sage);
+  padding: 48px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 3px solid var(--gold);
+}
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--black);
+  letter-spacing: 0.04em;
+}
+.footer-logo span { color: var(--gold); }
+
+.footer-nav { display: flex; gap: 28px; list-style: none; }
+.footer-nav a {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sage-deep);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-nav a:hover { color: var(--gold); }
+
+.footer-legal { font-size: 12px; color: var(--muted); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.eyebrow      { animation: fadeUp 0.65s ease both; }
+.hero-headline{ animation: fadeUp 0.65s ease both; animation-delay: 0.1s; }
+.hero-sub     { animation: fadeUp 0.65s ease both; animation-delay: 0.2s; }
+.hero-loc     { animation: fadeUp 0.65s ease both; animation-delay: 0.28s; }
+.hero-actions { animation: fadeUp 0.65s ease both; animation-delay: 0.36s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-left { padding: 56px 24px; }
+  .hero-right { min-height: 340px; }
+  .hero-stats { bottom: 20px; left: 20px; }
+  .intro-band { flex-direction: column; padding: 48px 24px; }
+  .intro-band-aside { text-align: left; }
+  .section { padding: 80px 24px; }
+  .process-grid { grid-template-columns: 1fr; }
+  .process-card { border-right: none; border-bottom: 1px solid var(--sage); }
+  .why-section { grid-template-columns: 1fr; padding: 80px 24px; gap: 56px; }
+  .why-badge { right: 0; bottom: -18px; }
+  .proof-band { padding: 72px 24px; background: var(--sage); }
+  .cta-section { grid-template-columns: 1fr; padding: 80px 24px; gap: 40px; }
+  footer { flex-direction: column; gap: 28px; padding: 40px 24px; text-align: center; }
+  .footer-nav { flex-wrap: wrap; justify-content: center; }
+}
+```
+
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+
+  <nav>
+    <a href="index.html" class="nav-logo">Acre<span>Grove</span></a>
+    <ul class="nav-links">
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#why-us">Why Us</a></li>
+      <li><a href="acre-grove-contact.html" class="nav-cta">Book Consultation</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero">
+    <div class="hero-left">
+      <p class="eyebrow">Land Acquisition Specialists</p>
+      <h1 class="hero-headline">
+        We See the Value<br>in Land <em>Others</em><br>Overlook.
+      </h1>
+      <p class="hero-sub">
+        We help landowners realise hidden development value — no upfront cost, no risk, ever.
+      </p>
+      <p class="hero-loc">Manchester &amp; Derby &nbsp;·&nbsp; North West &amp; East Midlands</p>
+      <div class="hero-actions">
+        <a href="acre-grove-contact.html" class="btn-primary">Get a Free Assessment</a>
+        <a href="#how-it-works" class="btn-ghost">How it works</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-img-placeholder">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+          <rect x="4" y="4" width="40" height="40" rx="2" stroke="#6e8a62" stroke-width="1.5"/>
+          <circle cx="17" cy="17" r="5" stroke="#6e8a62" stroke-width="1.5"/>
+          <path d="M4 32L14 22L22 30L30 20L44 36" stroke="#6e8a62" stroke-width="1.5" stroke-linejoin="round"/>
+        </svg>
+        <p>Aerial farmland England</p>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num">15+</div><div class="stat-lbl">Years</div></div>
+        <div class="stat"><div class="stat-num">100+</div><div class="stat-lbl">UK Deals</div></div>
+        <div class="stat"><div class="stat-num">£0</div><div class="stat-lbl">Upfront Cost</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO BAND -->
+
+  <div class="intro-band">
+    <p class="intro-band-text">
+      We work quietly, confidentially, and <strong>entirely at our own cost</strong> — identifying the development potential in your land before anyone else does.
+    </p>
+    <p class="intro-band-aside">
+      In partnership with Land Profits<br>
+      land-profits.co.uk
+    </p>
+  </div>
+
+  <!-- HOW IT WORKS -->
+
+  <section class="section" id="how-it-works">
+    <p class="section-label">The Process</p>
+    <h2 class="section-title">How We Unlock<br><em>Your Land's Value</em></h2>
+    <div class="process-grid">
+      <div class="process-card">
+        <div class="process-num">01</div>
+        <h3>Free Land Assessment</h3>
+        <p>We assess your land's development potential confidentially and at no cost. You'll receive a clear, honest view of what your land could be worth — with no obligation whatsoever.</p>
+      </div>
+      <div class="process-card">
+        <div class="process-num">02</div>
+        <h3>Tailored Strategy</h3>
+        <p>Our team — backed by 15+ years of UK land and planning expertise — designs a bespoke acquisition and development strategy around your land, timeline, and goals.</p>
+      </div>
+      <div class="process-card">
+        <div class="process-num">03</div>
+        <h3>We Share the Risk</h3>
+        <p>All costs, planning work, and risk sit with us. You pay nothing upfront. We profit only when your land delivers value — so our interests are entirely aligned with yours.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+
+  <section class="why-section" id="why-us">
+    <div class="why-image-block">
+      <div class="why-img-wrap">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+          <rect x="4" y="4" width="40" height="40" rx="2" stroke="#6e8a62" stroke-width="1.5"/>
+          <circle cx="17" cy="17" r="5" stroke="#6e8a62" stroke-width="1.5"/>
+          <path d="M4 32L14 22L22 30L30 20L44 36" stroke="#6e8a62" stroke-width="1.5" stroke-linejoin="round"/>
+        </svg>
+        <p>Green fields countryside UK</p>
+      </div>
+      <div class="why-badge">
+        <div class="num">100+</div>
+        <div class="lbl">Successful Deals</div>
+      </div>
+    </div>
+    <div>
+      <p class="section-label">Why Acre Grove</p>
+      <h2 class="section-title" style="font-size:clamp(30px,3.2vw,44px); margin-bottom:0;">
+        Unmatched experience.<br><em>Zero risk to you.</em>
+      </h2>
+      <ul class="why-list">
+        <li class="why-item">
+          <div class="why-icon">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8L6.5 12.5L14 4" stroke="#b8924a" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <h4>Zero Upfront Cost — Ever</h4>
+            <p>We handle all assessments, planning applications, and costs. You pay nothing. No hidden fees, no obligations whatsoever.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-icon">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8L6.5 12.5L14 4" stroke="#b8924a" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <h4>Discreet &amp; Bespoke</h4>
+            <p>We work confidentially on your behalf, maximising your land's value through tailored strategies and carefully chosen partnerships.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-icon">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8L6.5 12.5L14 4" stroke="#b8924a" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <h4>Proven JV Partnership</h4>
+            <p>In joint venture with Land Profits — 15+ years' experience and a portfolio of 100+ successful UK land developments.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PROOF BAND -->
+
+  <section class="proof-band">
+    <p class="section-label">Our Approach</p>
+    <p class="proof-quote">"We help landowners realise hidden development value — no upfront cost, no risk, ever."</p>
+    <p class="proof-attr">Acre Grove — Manchester &amp; Derby</p>
+    <div class="proof-pills">
+      <span>Land Profits</span><span>·</span>
+      <span>15+ Years Experience</span><span>·</span>
+      <span>100+ UK Deals</span><span>·</span>
+      <span>Zero Cost to Landowners</span>
+    </div>
+  </section>
+
+  <!-- CTA -->
+
+  <section class="cta-section">
+    <h2>Find out what your<br>land is <em>really</em> worth.</h2>
+    <div class="cta-right">
+      <p>Book a free, confidential land assessment today. No obligation, no cost, no pressure — just an honest conversation about your land's potential.</p>
+      <div class="cta-details">
+        <div class="cta-detail"><span class="cta-dot"></span><a href="mailto:info@simpsonandsonestates.com">info@simpsonandsonestates.com</a></div>
+        <div class="cta-detail"><span class="cta-dot"></span><a href="tel:07889024897">07889 024 897</a></div>
+        <div class="cta-detail"><span class="cta-dot"></span><span>Manchester &amp; Derby — North West &amp; East Midlands</span></div>
+      </div>
+      <a href="acre-grove-contact.html" class="btn-primary">Book Free Consultation</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    <div class="footer-logo">Acre<span>Grove</span></div>
+    <ul class="footer-nav">
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#why-us">Why Us</a></li>
+      <li><a href="acre-grove-contact.html">Contact</a></li>
+    </ul>
+    <p class="footer-legal">© 2025 Acre Grove. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
