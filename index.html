@@ -92,17 +92,27 @@ nav {
 
 /* ── HERO ── */
 .hero {
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
   padding-top: 72px;
+}
+.hero-banner {
+  width: 100%;
+  height: 68vh;
+  min-height: 440px;
+  overflow: hidden;
+}
+.hero-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  display: block;
 }
 
 .hero-left {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 80px 56px 80px 80px;
+  padding: 72px 80px;
+  max-width: 800px;
 }
 
 .eyebrow {
@@ -178,12 +188,7 @@ nav {
 }
 .btn-ghost:hover { color: var(--gold); }
 
-/* Hero image side */
-.hero-right {
-  position: relative;
-  background: var(--sage);
-  overflow: hidden;
-}
+
 
 .hero-img-placeholder {
   width: 100%;
@@ -209,15 +214,13 @@ nav {
    <img src="aerial-farmland.jpg" style="width:100%;height:100%;object-fit:cover;display:block;" alt="Aerial farmland England" /> */
 
 .hero-stats {
-  position: absolute;
-  bottom: 36px;
-  left: 36px;
   display: flex;
-  background: var(--cream);
+  background: var(--sage);
+  justify-content: center;
 }
 .stat {
-  padding: 18px 26px;
-  border-right: 1px solid var(--cream-dark);
+  padding: 20px 48px;
+  border-right: 1px solid var(--sage-mid);
 }
 .stat:last-child { border-right: none; }
 .stat-num {
@@ -271,7 +274,7 @@ nav {
 .section { padding: 112px 80px; }
 
 .section-label {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -427,7 +430,7 @@ nav {
   opacity: 1;
 }
 .proof-attr {
-  font-size: 20px;
+  font-size: 15px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--black);
@@ -445,7 +448,7 @@ nav {
 }
 .proof-pills span {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -544,9 +547,9 @@ footer {
   nav { padding: 0 24px; }
   .nav-links { display: none; }
   .hero { grid-template-columns: 1fr; }
-  .hero-left { padding: 56px 24px; }
-  .hero-right { min-height: 340px; }
-  .hero-stats { bottom: 20px; left: 20px; }
+  .hero-left { padding: 48px 24px; }
+  .hero-banner { height: 50vw; min-height: 260px; }
+  .hero-stats { flex-wrap: wrap; }
   .intro-band { flex-direction: column; padding: 48px 24px; }
   .intro-band-aside { text-align: left; }
   .section { padding: 80px 24px; }
@@ -559,6 +562,52 @@ footer {
   footer { flex-direction: column; gap: 28px; padding: 40px 24px; text-align: center; }
   .footer-nav { flex-wrap: wrap; justify-content: center; }
 }
+
+/* ── IMAGE STYLES ── */
+.hero-img-real {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.proof-band::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(196,189,180,0.82);
+  z-index: 0;
+}
+.proof-band > * { position: relative; z-index: 1; }
+
+/* ── SLIDE IN ANIMATIONS ── */
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.slide-in-right.visible,
+.slide-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── SCROLL FADE UP ── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+```
 
   </style>
 </head>
@@ -578,6 +627,14 @@ footer {
   <!-- HERO -->
 
   <section class="hero">
+    <div class="hero-banner slide-in-right">
+      <img src="christopher-moreno-stokoe-7T-0ssAkYKA-unsplash_2.jpg" alt="Aerial view of English countryside" />
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num counter" data-target="15" data-suffix="+">0+</div><div class="stat-lbl">Years</div></div>
+      <div class="stat"><div class="stat-num counter" data-target="100" data-suffix="+">0+</div><div class="stat-lbl">UK Deals</div></div>
+      <div class="stat"><div class="stat-num">£0</div><div class="stat-lbl">Upfront Cost</div></div>
+    </div>
     <div class="hero-left">
       <p class="eyebrow">Land Acquisition Specialists</p>
       <h1 class="hero-headline">
@@ -590,21 +647,6 @@ footer {
       <div class="hero-actions">
         <a href="contact.html" class="btn-primary">Get a Free Assessment</a>
         <a href="#how-it-works" class="btn-ghost">How it works</a>
-      </div>
-    </div>
-    <div class="hero-right">
-      <div class="hero-img-placeholder">
-        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-          <rect x="4" y="4" width="40" height="40" rx="2" stroke="#8a8278" stroke-width="1.5"/>
-          <circle cx="17" cy="17" r="5" stroke="#8a8278" stroke-width="1.5"/>
-          <path d="M4 32L14 22L22 30L30 20L44 36" stroke="#8a8278" stroke-width="1.5" stroke-linejoin="round"/>
-        </svg>
-        <p>Aerial farmland England</p>
-      </div>
-      <div class="hero-stats">
-        <div class="stat"><div class="stat-num">15+</div><div class="stat-lbl">Years</div></div>
-        <div class="stat"><div class="stat-num">100+</div><div class="stat-lbl">UK Deals</div></div>
-        <div class="stat"><div class="stat-num">£0</div><div class="stat-lbl">Upfront Cost</div></div>
       </div>
     </div>
   </section>
@@ -626,7 +668,7 @@ footer {
   <section class="section" id="how-it-works">
     <p class="section-label">The Process</p>
     <h2 class="section-title">How We Unlock<br><em>Your Land's Value</em></h2>
-    <div class="process-grid">
+    <div class="process-grid fade-up">
       <div class="process-card">
         <div class="process-num">01</div>
         <h3>Free Land Assessment</h3>
@@ -649,13 +691,8 @@ footer {
 
   <section class="why-section" id="why-us">
     <div class="why-image-block">
-      <div class="why-img-wrap">
-        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-          <rect x="4" y="4" width="40" height="40" rx="2" stroke="#8a8278" stroke-width="1.5"/>
-          <circle cx="17" cy="17" r="5" stroke="#8a8278" stroke-width="1.5"/>
-          <path d="M4 32L14 22L22 30L30 20L44 36" stroke="#8a8278" stroke-width="1.5" stroke-linejoin="round"/>
-        </svg>
-        <p>Green fields countryside UK</p>
+      <div class="why-img-wrap slide-in-left">
+        <img src="chris-haig-tvAmTY-ucKg-unsplash.jpg" style="width:100%;height:100%;object-fit:cover;display:block;" alt="Aerial view of English village" />
       </div>
       <div class="why-badge">
         <div class="num">100+</div>
@@ -701,7 +738,7 @@ footer {
 
   <!-- PROOF BAND -->
 
-  <section class="proof-band">
+  <section class="proof-band" style="background-image:url(andrew-hall-GvERe0-sCeY-unsplash.jpg);background-size:cover;background-position:center;position:relative;">
     <p class="section-label">Our Approach</p>
     <p class="proof-quote">"We help landowners realise hidden development value — no upfront cost, no risk, ever."</p>
     <p class="proof-attr">Acre Grove — Manchester &amp; Derby</p>
@@ -717,7 +754,7 @@ footer {
 
   <section class="cta-section">
     <h2>Find out what your<br>land is <em>really</em> worth.</h2>
-    <div class="cta-right">
+    <div class="cta-right fade-up">
       <p>Book a free, confidential land assessment today. No obligation, no cost, no pressure — just an honest conversation about your land's potential.</p>
       <div class="cta-details">
         <div class="cta-detail"><span class="cta-dot"></span><a href="mailto:enquire@acregrove.com">enquire@acregrove.com</a></div>
@@ -737,8 +774,53 @@ footer {
       <li><a href="#why-us">Why Us</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <p class="footer-legal">© 2025 Acre Grove. All rights reserved. &nbsp;·&nbsp; <a href="privacy.html" style="color:inherit;opacity:0.6;text-decoration:none;">Privacy Policy</a></p>
+    <p class="footer-legal">© 2025 Acre Grove. All rights reserved. &nbsp;·&nbsp; Photography: Christopher Moreno-Stokoe, Andrew Hall, Chris Haig via Unsplash. &nbsp;·&nbsp; <a href="privacy.html" style="color:inherit;opacity:0.6;text-decoration:none;">Privacy Policy</a></p>
   </footer>
+
+<script>
+// Slide-in and fade-up on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.slide-in-right, .slide-in-left, .fade-up').forEach(el => {
+  observer.observe(el);
+});
+
+// Trigger hero image immediately
+document.querySelectorAll('.slide-in-right').forEach(el => {
+  setTimeout(() => el.classList.add('visible'), 300);
+});
+
+// Counter animation
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = parseInt(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      let current = 0;
+      const increment = target / 40;
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          el.textContent = target + suffix;
+          clearInterval(timer);
+        } else {
+          el.textContent = Math.floor(current) + suffix;
+        }
+      }, 40);
+      counterObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+</script>
 
 </body>
 </html>
