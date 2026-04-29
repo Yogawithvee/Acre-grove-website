@@ -49,14 +49,15 @@ nav {
 }
 
 .nav-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  color: var(--black);
   text-decoration: none;
+  display: flex;
+  align-items: center;
 }
-.nav-logo span { color: var(--gold); }
+.nav-logo-img {
+  height: 48px;
+  width: auto;
+  display: block;
+}
 
 .nav-links {
   display: flex;
@@ -115,6 +116,7 @@ nav {
   padding: 72px 80px;
   align-items: start;
 }
+.hero-text-col { display: flex; flex-direction: column; }
 
 .eyebrow {
   font-size: 11px;
@@ -549,6 +551,7 @@ footer {
   .nav-links { display: none; }
   .hero { grid-template-columns: 1fr; }
   .hero-left { padding: 48px 24px; grid-template-columns: 1fr; gap: 40px; }
+  .hero-map-col { margin-top: 0; }
   .hero-banner { height: 50vw; min-height: 260px; }
   .hero-stats { flex-wrap: wrap; }
   .intro-band { flex-direction: column; padding: 48px 24px; }
@@ -646,7 +649,7 @@ footer {
   <!-- NAV -->
 
   <nav>
-    <a href="index.html" class="nav-logo">Acre<span>Grove</span></a>
+    <a href="index.html" class="nav-logo"><img src="Acre_Grove_Land_Logo_2.svg" alt="Acre Grove" class="nav-logo-img" /></a>
     <ul class="nav-links">
       <li><a href="#how-it-works">How It Works</a></li>
       <li><a href="#why-us">Why Us</a></li>
@@ -658,7 +661,7 @@ footer {
 
   <section class="hero">
     <div class="hero-banner slide-in-right">
-      <img src="christopher-moreno-stokoe-7T-0ssAkYKA-unsplash_2.jpg" alt="Aerial view of English countryside" />
+      <img src="christopher-moreno-stokoe-7T-0ssAkYKA-unsplash%202.jpg" onerror="this.src='christopher-moreno-stokoe-7T-0ssAkYKA-unsplash.jpg'" alt="Aerial view of English countryside" />
     </div>
     <div class="hero-stats">
       <div class="stat"><div class="stat-num counter" data-target="15" data-suffix="+">0+</div><div class="stat-lbl">Years</div></div>
@@ -666,7 +669,7 @@ footer {
       <div class="stat"><div class="stat-num">£0</div><div class="stat-lbl">Upfront Cost</div></div>
     </div>
     <div class="hero-left">
-      <div>
+      <div class="hero-text-col">
         <p class="eyebrow">Land Acquisition Specialists</p>
         <h1 class="hero-headline">
           We See the Value<br>in Land <em>Others</em><br>Overlook.
@@ -819,7 +822,7 @@ footer {
   <!-- FOOTER -->
 
   <footer>
-    <div class="footer-logo">Acre<span>Grove</span></div>
+    <div class="footer-logo"><img src="Acre_Grove_Land_Logo_2.svg" alt="Acre Grove" style="height:40px;width:auto;display:block;" /></div>
     <ul class="footer-nav">
       <li><a href="#how-it-works">How It Works</a></li>
       <li><a href="#why-us">Why Us</a></li>
