@@ -9,6 +9,7 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+```
 :root {
   --gold:       #b8924a;
   --gold-light: #d4aa6a;
@@ -96,8 +97,8 @@ nav {
 }
 .hero-banner {
   width: 100%;
-  height: 68vh;
-  min-height: 440px;
+  height: 45vh;
+  min-height: 280px;
   overflow: hidden;
 }
 .hero-banner img {
@@ -109,10 +110,11 @@ nav {
 }
 
 .hero-left {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
   padding: 72px 80px;
-  max-width: 800px;
+  align-items: start;
 }
 
 .eyebrow {
@@ -547,7 +549,7 @@ footer {
   nav { padding: 0 24px; }
   .nav-links { display: none; }
   .hero { grid-template-columns: 1fr; }
-  .hero-left { padding: 48px 24px; }
+  .hero-left { padding: 48px 24px; grid-template-columns: 1fr; gap: 40px; }
   .hero-banner { height: 50vw; min-height: 260px; }
   .hero-stats { flex-wrap: wrap; }
   .intro-band { flex-direction: column; padding: 48px 24px; }
@@ -607,6 +609,35 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ── MAPS ── */
+.hero-map-col { display: flex; flex-direction: column; gap: 0; }
+
+.map-cards { display: flex; flex-direction: column; gap: 16px; }
+
+.map-card {
+  border: 1px solid var(--sage);
+  overflow: hidden;
+}
+
+.map-label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text);
+  padding: 12px 16px;
+  background: var(--cream-dark);
+  border-bottom: 1px solid var(--sage);
+}
+.map-label span { color: var(--muted); font-weight: 300; }
+
+.map-frame {
+  width: 100%;
+  height: 200px;
+  border: none;
+  display: block;
+}
 ```
 
   </style>
@@ -636,17 +667,38 @@ footer {
       <div class="stat"><div class="stat-num">£0</div><div class="stat-lbl">Upfront Cost</div></div>
     </div>
     <div class="hero-left">
-      <p class="eyebrow">Land Acquisition Specialists</p>
-      <h1 class="hero-headline">
-        We See the Value<br>in Land <em>Others</em><br>Overlook.
-      </h1>
-      <p class="hero-sub">
-        We help landowners realise hidden development value — no upfront cost, no risk, ever.
-      </p>
-      <p class="hero-loc">Manchester &amp; Derby &nbsp;·&nbsp; North West &amp; East Midlands</p>
-      <div class="hero-actions">
-        <a href="contact.html" class="btn-primary">Get a Free Assessment</a>
-        <a href="#how-it-works" class="btn-ghost">How it works</a>
+      <div>
+        <p class="eyebrow">Land Acquisition Specialists</p>
+        <h1 class="hero-headline">
+          We See the Value<br>in Land <em>Others</em><br>Overlook.
+        </h1>
+        <p class="hero-sub">
+          We help landowners realise hidden development value — no upfront cost, no risk, ever.
+        </p>
+        <p class="hero-loc">Manchester &amp; Derby &nbsp;·&nbsp; North West &amp; East Midlands</p>
+        <div class="hero-actions">
+          <a href="contact.html" class="btn-primary">Get a Free Assessment</a>
+          <a href="#how-it-works" class="btn-ghost">How it works</a>
+        </div>
+      </div>
+      <div class="hero-map-col">
+        <p class="eyebrow" style="margin-bottom:16px;">Our Coverage Areas</p>
+        <div class="map-cards">
+          <div class="map-card">
+            <div class="map-label">Manchester <span>· North West</span></div>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d75763.45!2d-2.2426!3d53.4808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2suk!4v1"
+              class="map-frame" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <div class="map-card">
+            <div class="map-label">Derby <span>· East Midlands</span></div>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d75763.45!2d-1.4746!3d52.9225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2suk!4v1"
+              class="map-frame" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
       </div>
     </div>
   </section>
